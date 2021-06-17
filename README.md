@@ -1,2 +1,2 @@
 # Quantumult X
-![BoxJs1](https://raw.githubusercontent.com/llppliu/QuantumultX/icon/BoxJS.png "BoxJs")
+![README1](https://raw.githubusercontent.com/llppliu/QuantumultX/icon/README.PNG "README")
