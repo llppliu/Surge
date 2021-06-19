@@ -1,28 +1,13 @@
 /*
-抖音去广告, 去水印。
+抖音去广告, 去水印。<16.3.0
 
 ***************************
-Surge 4.2+ :
-
-[Script]
-抖音去广告&水印req = type=http-request,pattern=^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Aweme.js
-
-抖音去广告&水印res = type=http-response,pattern=^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Aweme.js
-
-[MITM]
-hostname = *.amemv.com
-
-***************************
-***************************
-QuantumultX 1.0.10+ :
-
-[rewrite_local]
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/ url script-request-header https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Aweme.js
-
-^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/ url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Aweme.js
+QX:
+^https?:\/\/api.*\.amemv\.com\/aweme\/v\d\/(?!(comment|namek)) url request-header ^GET \/aweme\/v\d\/(.+\r\n) request-header GET /aweme/v1/$1
+^https?:\/\/api.*\.amemv\.com\/aweme\/v[12]\/((|follow\/|nearby\/)feed|aweme\/post|hot\/search\/video\/list|mix\/aweme|aweme\/detail)\/\? url script-response-body https://raw.githubusercontent.com/llppliu/QuantumultX/Scripts/Douyin.js
 
 [mitm]
-hostname = *.amemv.com
+hostname = api?-*-*-*.amemv.com
 ***************************
 */
 
