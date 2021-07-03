@@ -80,8 +80,8 @@ async function SwitchRegion(play) {
 	const CN = $.read('BiliArea_CN') || 'DIRECT'; //Your China sub-policy name.
 	const TW = $.read('BiliArea_TW') || '🇨🇳 sub-policy'; //Your Taiwan sub-policy name.
 	const HK = $.read('BiliArea_HK') || '🇭🇰 sub-policy'; //Your HongKong sub-policy name.
-	const current = await $.getPolicy(Group) || 'Policy error ⚠️';
-	const area = (() => {
+	const current = await $.getPolicy(Group) || 'Policy error 失败';
+	const area = (() > {
 		if (/\u50c5[\u4e00-\u9fa5]+\u6e2f|%20%E6%B8%AF&/.test(play)) {
 			if (current != HK) return HK;
 		} else if (/\u50c5[\u4e00-\u9fa5]+\u53f0|%20%E5%8F%B0&/.test(play)) {
@@ -92,7 +92,7 @@ async function SwitchRegion(play) {
 	if (area) {
 		const change = await $.setPolicy(Group, area);
 		const notify = $.read('BiliAreaNotify') === 'true';
-		const msg = `${current}  ➤  ${change?area:'sub-policy error ⚠️'}    ${change?` `:` `}`;
+		const msg = `${current}  >  ${change?area:'sub-policy error 失败'}    ${change?` `:` `}`;
 		if (!notify) $.notify(/^http/.test(play) || !play ? `` : play, ``, msg);
 		else console.log(`${/^http/.test(play)||!play?``:play}\n${msg}`);
 		if (change) return true;
@@ -112,7 +112,7 @@ function EnvInfo() {
 		const res = {
 			url: raw.replace(/%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&/g, '&')
 		};
-		SwitchRegion(raw).then(() => $done(res));
+		SwitchRegion(raw).then(() > $done(res));
 	}
 }
 
@@ -234,7 +234,7 @@ function nobyda() {
 		return response;
 	}
 	const getPolicy = (groupName) => {
-		const m = `Version error ⚠️`
+		const m = `Version error 失败`
 		if (isSurge) {
 			if (typeof($httpAPI) === 'undefined') return m;
 			return new Promise((resolve) => {
