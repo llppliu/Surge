@@ -1,2 +1,2 @@
-# Quantumult X
+# Surge
 ![README1](https://raw.githubusercontent.com/llppliu/QuantumultX/icon/README.PNG "README")
