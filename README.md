@@ -1,2 +1,2 @@
 # Surge
-![README1](https://raw.githubusercontent.com/llppliu/QuantumultX/icon/README.PNG "README")
+![README1](https://raw.githubusercontent.com/llppliu/Surge/icon/Surge.jpg "README")
