@@ -109,13 +109,13 @@ function SwitchStatus(status, original, newPolicy) {
 	if (status) {
 		return `${original}  >  ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
-		return `失败, ㅤ `
+		return `哔哩哔哩失败 ㅤ `
 	} else if (original === 3) {
-		return `失败, ㅤ `
+		return `哔哩哔哩失败 ㅤ `
 	} else if (status === 0) {
-		return `失败, ㅤ `
+		return `哔哩哔哩失败 ㅤ `
 	} else {
-		return `失败, ㅤ `
+		return `哔哩哔哩失败 ㅤ `
 	}
 }
 
