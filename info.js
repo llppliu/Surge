@@ -37,7 +37,7 @@ let delay = 0;
   let total = usage.total;
   let expire = usage.expire || params.expire;
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`已用流量：${bytesToSize(used)} | ${bytesToSize(total)}`];
+  let infoList = [`流量：${bytesToSize(used)} | ${bytesToSize(total)}`];
 
   if (resetLeft) {
     infoList.push(`重置日期：剩余${resetLeft}天`);
