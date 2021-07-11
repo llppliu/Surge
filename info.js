@@ -3,7 +3,7 @@ Surge 4流量信息
 ----------------------------------------
 
 [Proxy Group]
-机场名称 = select, policy-path=http://sub.info?url=encode机场节点链接&reset_day=13&alert=1&title=Amytelecom, update-interval=3600
+机场名称 = select, policy-path=http://sub.info?url=encode机场节点链接&reset_day=13&alert=1&title=机场名称, update-interval=3600
 
 [Script]
 机场信息 = type=http-request,pattern=http://sub\.info,script-path=info.js,timeout=10
@@ -37,7 +37,7 @@ let delay = 0;
   let total = usage.total;
   let expire = usage.expire || params.expire;
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`流量：${bytesToSize(used)} | ${bytesToSize(total)}`];
+  let infoList = [`已用流量：${bytesToSize(used)}  剩余流量：${bytesToSize(total)}`];
 
   if (resetLeft) {
     infoList.push(`重置日期：剩余${resetLeft}天`);
