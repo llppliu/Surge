@@ -107,15 +107,15 @@ async function SwitchRegion(play) {
 
 function SwitchStatus(status, original, newPolicy) {
 	if (status) {
-		return `${original} 切换 ${newPolicy}  ㅤ   `;
+		return `${original} › ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
-		return `哔哩哔哩港澳台限定失败ㅤ `
+		return `失败ㅤ `
 	} else if (original === 3) {
-		return `哔哩哔哩港澳台限定失败ㅤ `
+		return `失败ㅤ `
 	} else if (status === 0) {
-		return `哔哩哔哩港澳台限定失败ㅤ `
+		return `失败ㅤ `
 	} else {
-		return `哔哩哔哩港澳台限定失败ㅤ `
+		return `失败ㅤ `
 	}
 }
 
