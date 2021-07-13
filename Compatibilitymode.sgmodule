@@ -1,0 +1,6 @@
+#!name=兼容模式
+#!desc=解决某些软件检测代理的问题。
+#!system=ios
+
+[General]
+compatibility-mode = 3
