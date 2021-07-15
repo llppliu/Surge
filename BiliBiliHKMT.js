@@ -107,7 +107,7 @@ async function SwitchRegion(play) {
 
 function SwitchStatus(status, original, newPolicy) {
 	if (status) {
-		return `${original} › ${newPolicy}  ㅤ   `;
+		return `${original} ᐳ ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
 		return `失败ㅤ `
 	} else if (original === 3) {
