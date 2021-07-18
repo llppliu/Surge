@@ -63,7 +63,7 @@ function manager() {
   if (!config.silence) {
     notify(
       `${isSurge ? "出站模式" : ""}  `,
-      `网络：${ssid ? ssid : "蜂窝数据"}`,
+      `网络：${ssid ? ssid : "蜂窝网络"}`,
       `${isSurge ? "出站模式" : ""}  ᐳ  ${MODE_NAMES[mode]}`
     );
   }
