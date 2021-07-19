@@ -3,7 +3,7 @@
 #!system=ios
 
 [Script]
-# > 哔哩哔哩港澳台限定 - ap?.bilibili.com
+# ᐳ 哔哩哔哩港澳台限定 - ap?.bilibili.com
 哔哩哔哩港澳台限定 = type=http-response,pattern=^https:\/\/ap(p|i)\.bilibili\.com\/(pgc\/view\/(v\d\/)?app|x(\/v\d)?\/view\/video)\/(season|online)\?access_key,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/llppliu/Surge/Scripts/BiliBiliHKMT.js
 哔哩哔哩港澳台限定搜索 = type=http-request,pattern=^https:\/\/app\.bilibili\.com\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&,script-path=https://raw.githubusercontent.com/llppliu/Surge/Scripts/BiliBiliHKMT.js
 
