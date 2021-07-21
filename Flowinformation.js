@@ -40,11 +40,11 @@ let delay = 0;
   let infoList = [`${bytesToSize(used)} / ${bytesToSize(total)}`];
 
   if (resetLeft) {
-    infoList.push(`重置日期：剩余${resetLeft}天`);
+    infoList.push(`${resetLeft}天后重置`);
   }
   if (expire) {
     if (/^[\d]+$/.test(expire)) expire *= 1000;
-    infoList.push(`套餐到期：${formatTime(expire)}`);
+    infoList.push(`${formatTime(expire)}`);
   }
   sendNotification(used / total, expire, infoList);
   let body = infoList.map((item) => item + localProxy).join("\n");
