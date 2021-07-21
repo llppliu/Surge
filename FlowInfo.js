@@ -6,7 +6,7 @@ Surge 4流量信息
 机场名称 = select, policy-path=http://sub.info?url=encode机场节点链接&reset_day=13&alert=1&title=机场名称, update-interval=3600
 
 [Script]
-机场信息 = type=http-request,pattern=http://sub\.info,script-path=info.js,timeout=10
+机场信息 = type=http-request,pattern=http://sub\.info,script-path=FlowInfo.js,timeout=10
 ----------------------------------------
 
 
