@@ -37,7 +37,7 @@ let delay = 0;
   let total = usage.total;
   let expire = usage.expire || params.expire;
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`${bytesToSize(used)} / ${bytesToSize(total)}`];
+  let infoList = [`${bytesToSize(used)}/${bytesToSize(total)}`];
 
   if (resetLeft) {
     infoList.push(`${resetLeft}天后重置`);
