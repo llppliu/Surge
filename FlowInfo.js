@@ -84,7 +84,7 @@ function getUserInfo(url) {
 async function getDataUsage(url) {
   let info = await getUserInfo(url);
   if (!info) {
-    $notification.post("SubInfo", "", "链接响应头不带有流量信息");
+    $notification.post("流量信息", "", "链接响应头没有流量信息");
     $done();
   }
   return Object.fromEntries(
