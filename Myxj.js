@@ -1,7 +1,7 @@
 /*
-#美颜相机 v9.6.20版本（by-黑黑酱）
+#美颜相机
 QX:
-^https:\/\/api\.meiyan\.com\/vip\/user_info url script-response-body Meiyanxiangji.js
+^https:\/\/api\.meiyan\.com\/vip\/user_info url script-response-body Myxj.js
 
 MITM = api.meiyan.com
 */
