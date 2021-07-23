@@ -40,7 +40,7 @@ let delay = 0;
   let infoList = [`${bytesToSize(used)}/${bytesToSize(total)}`];
 
   if (resetLeft) {
-    infoList.push(`${resetLeft}天后重置`);
+    infoList.push(`${resetLeft}天后重置流量`);
   }
   if (expire) {
     if (/^[\d]+$/.test(expire)) expire *= 1000;
