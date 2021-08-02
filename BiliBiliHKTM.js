@@ -1,13 +1,6 @@
 /**************************
 
-哔哩哔哩, 港澳台番剧自动切换地区 & 显示豆瓣评分
-
-如需禁用豆瓣评分或策略通知, 可前往BoxJs设置.
-BoxJs订阅地址: https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json
-
-Update: 2021.06.17
-Author: @NobyDa
-Use: Surge, QuanX, Loon
+哔哩哔哩港澳台，番剧自动切换地区
 
 ****************************
 港澳台自动切换地区说明 :
@@ -76,7 +69,7 @@ let $ = nobyda();
 let run = EnvInfo();
 
 async function SwitchRegion(play) {
-	const Group = $.read('BiliArea_Policy') || '📺 DomesticMedia'; //Your blibli policy group name.
+	const Group = $.read('BiliArea_Policy') || 'DomesticMedia'; //Your blibli policy group name.
 	const CN = $.read('BiliArea_CN') || 'DIRECT'; //Your China sub-policy name.
 	const TW = $.read('BiliArea_TW') || '🇨🇳 sub-policy'; //Your Taiwan sub-policy name.
 	const HK = $.read('BiliArea_HK') || '🇭🇰 sub-policy'; //Your HongKong sub-policy name.
@@ -107,16 +100,16 @@ async function SwitchRegion(play) {
 
 function SwitchStatus(status, original, newPolicy) {
 	if (status) {
-		return `哔哩哔哩
+		return `哔哩哔哩港澳台
 ${original}  ᐳ  ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
-		return `失败ㅤ `
+		return `哔哩哔哩港澳台失败ㅤ `
 	} else if (original === 3) {
-		return `失败ㅤ `
+		return `哔哩哔哩港澳台失败ㅤ `
 	} else if (status === 0) {
-		return `失败ㅤ `
+		return `哔哩哔哩港澳台失败ㅤ `
 	} else {
-		return `失败ㅤ `
+		return `哔哩哔哩港澳台失败ㅤ `
 	}
 }
 
