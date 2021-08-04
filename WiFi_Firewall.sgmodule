@@ -1,5 +1,5 @@
 #!name=网络防火墙
-#!desc=启用后，设备从蜂窝网络切换至Wi-Fi，断开连接15秒
+#!desc=启用后，设备从蜂窝网络切换至Wi-Fi，断开连接15秒。
 #!system=ios
 
 [Script]
