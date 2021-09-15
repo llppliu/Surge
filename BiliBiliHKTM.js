@@ -103,16 +103,16 @@ async function SwitchRegion(play) {
 
 function SwitchStatus(status, original, newPolicy) {
 	if (status) {
-		return `哔哩哔哩
+		return `BiliBili地区切换
 ${original}  ᐳ  ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
-		return `哔哩哔哩失败ㅤ `
+		return `BiliBili地区切换失败ㅤ `
 	} else if (original === 3) {
-		return `哔哩哔哩失败ㅤ `
+		return `BiliBili地区切换失败ㅤ `
 	} else if (status === 0) {
-		return `哔哩哔哩失败ㅤ `
+		return `BiliBili地区切换失败ㅤ `
 	} else {
-		return `哔哩哔哩失败ㅤ `
+		return `BiliBili地区切换失败ㅤ `
 	}
 }
 
