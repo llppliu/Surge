@@ -104,7 +104,7 @@ async function SwitchRegion(play) {
 function SwitchStatus(status, original, newPolicy) {
 	if (status) {
 		return `BiliBili地区切换
-${original}  ᐳ  ${newPolicy}  ㅤ   `;
+${original}  ⇌  ${newPolicy}  ㅤ   `;
 	} else if (original === 2) {
 		return `BiliBili地区切换失败ㅤ `
 	} else if (original === 3) {
