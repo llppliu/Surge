@@ -52,7 +52,7 @@ async function check_youtube_premium() {
     })
   }
 
-  let youtube_check_result = 'YouTube：'
+  let youtube_check_result = 'YouTube: '
 
   await inner_check()
     .then((code) => {
@@ -108,7 +108,7 @@ async function check_netflix() {
     })
   }
 
-  let netflix_check_result = 'Netflix：'
+  let netflix_check_result = 'Netflix: '
 
   await inner_check(81215567)
     .then((code) => {
