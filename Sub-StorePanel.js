@@ -15,7 +15,7 @@ Sub_StorePanel
   let infoList = [`${bytesToSize(used)}/${bytesToSize(total)}`];
 
   if (resetLeft) {
-    infoList.push(`${resetLeft}天后重置流量`);
+    infoList.push(`${resetLeft}天后流量重置`);
   }
   if (expire) {
     if (/^[\d]+$/.test(expire)) expire *= 1000;
