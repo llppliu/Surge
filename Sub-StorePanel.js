@@ -1,5 +1,5 @@
 /*
-Sub_info_panel
+Sub_StorePanel
 
 ----------------------------------------
 */
@@ -12,14 +12,14 @@ Sub_info_panel
   let used = usage.download + usage.upload;
   let total = usage.total;
   let expire = usage.expire || params.expire;
-  let infoList = [`ㅤ`];
+  let infoList = [`${bytesToSize(used)}/${bytesToSize(total)}`];
 
   if (resetLeft) {
-    infoList.push(`ㅤ`);
+    infoList.push(`${resetLeft}天后重置流量`);
   }
   if (expire) {
     if (/^[\d]+$/.test(expire)) expire *= 1000;
-    infoList.push(`ㅤ`);
+    infoList.push(`${formatTime(expire)}`);
   }
 
   let body = infoList.join("\n");
@@ -59,7 +59,7 @@ function getUserInfo(url) {
 async function getDataUsage(url) {
   let info = await getUserInfo(url);
   if (!info) {
-    $notification.post("SubInfo", "", "链接响应头不带有流量信息");
+    $notification.post("SubInfo", "", "失败");
     $done();
   }
   return Object.fromEntries(
