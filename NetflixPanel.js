@@ -1,10 +1,10 @@
 /**
- * nf_check.js
+ * NetflixPanel.js
  * [Panel]
- * nf_check = script-name=nf_check, title="Netflix 解锁检测", content="请刷新", update-interval=1
+ * NetflixPanel = script-name=NetflixPanel.js, title="Netflix", content="请刷新", update-interval=1
  *
  * [Script]
- * nf_check = type=generic, script-path=nf_check.js, argument=title=Netflix 解锁检测
+ * NetflixPanel = type=generic, script-path=NetflixPanel.js, argument=title=Netflix
  *
  * 支持使用脚本使用 argument 参数自定义配置，如：argument=key1=URLEncode(value1)&key2=URLEncode(value2)，具体参数如下所示，
  * title: 面板标题
@@ -31,10 +31,10 @@ const FILM_ID = 81215567
 const AREA_TEST_FILM_ID = 80018499
 const DEFAULT_OPTIONS = {
   title: 'Netflix',
-  fullContent: '解锁: #REGION_FLAG# #REGION_NAME#',
+  fullContent: '解锁：#REGION_FLAG# #REGION_NAME#',
   fullIcon: '',
   fullIconColor: '',
-  onlyOriginalContent: '解锁自制剧: #REGION_FLAG# #REGION_NAME#',
+  onlyOriginalContent: '解锁自制剧：#REGION_FLAG# #REGION_NAME#',
   onlyOriginalIconColor: '',
   notAvailableContent: '失败',
   notAvailableIconColor: '',
@@ -179,7 +179,7 @@ function getOptions() {
       )
       Object.assign(options, params)
     } catch (error) {
-      console.error(`$argument 失败，$argument: + ${argument}`)
+      console.error(`$argument失败，$argument: + ${argument}`)
     }
   }
 
