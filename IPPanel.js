@@ -9,7 +9,7 @@ $httpClient.get(url, function(error, response, data){
     let isp = jsonData.isp
   body = {
     title: "服务器",
-    content: `位置: ${emoji} ${country}\n地区: ${city}\nIP: ${ip}\nISP: ${isp}`,
+    content: `位置：${emoji} ${country}\n地区：${city}\nIP：${ip}\nISP：${isp}`,
     icon: ""
   }
   $done(body);
