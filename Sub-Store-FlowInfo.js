@@ -43,7 +43,7 @@ async function AllSubs(subsUrl, subsName) {
       var year = epr.getFullYear();
       var mth = epr.getMonth() + 1 < 10 ? '0' + (epr.getMonth() + 1) : (epr.getMonth() + 1);
       var day = epr.getDate() < 10 ? "0" + (epr.getDate()) : epr.getDate();
-      var epr = `套餐到期：${year}-${mth}-${day}`;
+      var epr = `有效期至：${year}-${mth}-${day}`;
     } else {
       var epr = "";
     }
