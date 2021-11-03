@@ -43,7 +43,7 @@ async function AllSubs(subsUrl, subsName) {
       var year = epr.getFullYear();
       var mth = epr.getMonth() + 1 < 10 ? '0' + (epr.getMonth() + 1) : (epr.getMonth() + 1);
       var day = epr.getDate() < 10 ? "0" + (epr.getDate()) : epr.getDate();
-      var epr = `有效期至：${year}-${mth}-${day}`;
+      var epr = `有效期至：${year}年${mth}月${day}日`;
     } else {
       var epr = "";
     }
