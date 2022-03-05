@@ -64,7 +64,7 @@ function manager() {
     notify(
       `${isSurge ? "出站模式" : ""}  `,
       `网络：${ssid ? ssid : "蜂窝网络"}`,
-      `${isSurge ? "出站模式" : ""}  ᐳ  ${MODE_NAMES[mode]}`
+      `${isSurge ? "出站模式" : ""}  ->  ${MODE_NAMES[mode]}`
     );
   }
 }
