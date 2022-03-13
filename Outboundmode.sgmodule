@@ -1,5 +1,5 @@
 #!name=出站模式
-#!desc=根据当前网络自动切换模式。
+#!desc=根据当前网络自动切换模式。By llppliu
 #!system=ios
 
 [Script]
