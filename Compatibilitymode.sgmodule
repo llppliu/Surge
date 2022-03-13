@@ -1,5 +1,5 @@
-#!name=兼容模式
-#!desc=解决某些软件检测代理的问题。By llppliu
+#!name=TUN Only
+#!desc=解决某些软件检测代理的问题。
 #!system=ios
 
 [General]
