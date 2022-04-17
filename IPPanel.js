@@ -1,3 +1,4 @@
+// ${country}
 let url = "http://ip-api.com/json/?lang=zh-CN"
 
 $httpClient.get(url, function(error, response, data){
@@ -10,7 +11,7 @@ $httpClient.get(url, function(error, response, data){
   body = {
     title: "服务器",
     content: `位置：${emoji} ${city}\nIP：${ip}\nISP：${isp}`,
-    icon: ""
+    icon: "macpro.gen3.fill"
   }
   $done(body);
 });
