@@ -20,7 +20,7 @@ const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
     removeRecommendItem: true, //评论区推荐内容
     removeRewardItem: true, //微博详情页打赏模块
 
-    removeLiveMedia: true, //首页顶部直播
+    removeLiveMedia: false, //首页顶部直播
     removeNextVideo: true, //关闭自动播放下一个视频
 
     removeInterestFriendInTopic: true, //超话：超话里的好友
