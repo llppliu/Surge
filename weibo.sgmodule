@@ -23,18 +23,8 @@ URL-REGEX,^https?:\/\/captcha\.weibo\.com\/static\/js\/jigsawLock\.min\.js$,REJE
 URL-REGEX,^https?:\/\/wx[0-9]\.sinaimg\.cn\/large\/.+\.gif$,REJECT
 
 [Map Local]
-#!微博
-^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/fhy_dongtu\.gif$ data="https://hub.qste.com/Mock/Weibo/hy_dongtu.gif"
-^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/bianjijiantou\.png$ data="https://hub.qste.com/Mock/Weibo/jiantougaocheng.png"
-^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/Vip\.png$ data="https://hub.qste.com/Mock/Weibo/avatar_vip_golden.png"
-^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/vip[0-9]_default\.png$ data="https://hub.qste.com/Mock/Weibo/feed_icon_100vip_7_default.png"
-
 #!微博积分弹窗
 ^https?:\/\/luck\.sc\.weibo\.com\/aj\/Action\/indexInfo$ data="https://hub.qste.com/Mock/Blank/Blank_Dict.json"
-
-#!微博会员中心弹窗
-^https?:\/\/new\.vip\.weibo\.c(n|om)\/aj\/vipcenter\/popalert data="https://hub.qste.com/Mock/Blank/Blank_Dict.json"
-^https?:\/\/new\.vip\.weibo\.c(n|om)\/aj\/vipcenter\/userdata data="https://hub.qste.com/Mock/Blank/Blank_Dict.json"
 
 #!微博发现
 ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/search\/container_discover\?gsid= data="https://hub.qste.com/Mock/Blank/Blank_Dict.json"
@@ -76,8 +66,6 @@ URL-REGEX,^https?:\/\/wx[0-9]\.sinaimg\.cn\/large\/.+\.gif$,REJECT
 
 [Script]
 #!微博去广告
-微博扩展 = type=http-response,pattern=^https?:\/\/m?api\.weibo\.c(n|om)/2/(profile/(me|statuses)|searchall|statuses/(unread_hot_timeline|extend|video_mixtimeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|container/get_item|search/container_discover),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/llppliu/Surge/Script/weibo.js
-
 微博开屏 = requires-body=1,script-path=https://hub.qste.com/Script/Weibo/Launch.js,type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
 
 微博 = type=http-response,requires-body=1,max-size=-1,pattern=^https?:\/\/m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist|wbox\/.+\/createrIndex|st_videos\/tiny\/effect\/shoot_display_config)|video/tiny_stream_video_list|photo/info|remind/unread_count|search/finder|search/container_timeline|!\/huati\/discovery_home_bottom_channel_list|statuses\/unread_topic_timeline),script-path=https://hub.qste.com/Script/Weibo/Timeline.js
@@ -89,3 +77,4 @@ URL-REGEX,^https?:\/\/wx[0-9]\.sinaimg\.cn\/large\/.+\.gif$,REJECT
 
 [MITM]
 hostname = %APPEND% *.uve.weibo.com, *api.weibo.cn, *api.weibo.com, h5.sinaimg.cn, new.vip.weibo.cn, *.sc.weibo.com, captcha.weibo.com, wx*.sinaimg.cn, js.t.sinajs.cn
+
