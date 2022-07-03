@@ -1,0 +1,23 @@
+#!name=Panel
+#!desc=信息面版
+#!system=ios
+
+[Panel]
+#!ISP
+ISP = script-name=ISP, title="", content="", style=info, update-interval=-1
+
+#!Netflix
+Netflix = script-name=Netflix, title="", content="", update-interval=-1
+
+#!Disney
+#!Disney = script-name=Disney,title="",style=alert,content="",update-interval=-1
+
+[Script]
+#!ISP
+ISP = type=generic, timeout=3, script-path=https://raw.githubusercontent.com/llppliu/Surge/Script/ISPPanel.js
+
+#!Netflix
+Netflix = type=generic, script-path=https://raw.githubusercontent.com/llppliu/Surge/Script/NetflixPanel.js
+
+#!Disney
+#!Disney = type=generic, script-path=https://raw.githubusercontent.com/llppliu/Surge/Script/DisneyPanel.js
