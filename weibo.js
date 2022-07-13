@@ -1,4 +1,4 @@
-const version = 'v0608.1';
+const version = 'v0707.1737';
 
 let $ = new nobyda();
 let storeMainConfig = $.read('mainConfig');
@@ -9,7 +9,7 @@ const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
     isDebug: true, //开启调试，会打印运行中部分日志
     //个人中心配置，其中多数是可以直接在更多功能里直接移除
     removeHomeVip: false, //个人中心头像旁边的vip样式
-    removeHomeCreatorTask: true, //个人中心创作者中心下方的轮播图
+    removeHomeCreatorTask: false, //个人中心创作者中心下方的轮播图
 
     //微博详情页配置
     removeRelate: true, //相关推荐
@@ -20,7 +20,7 @@ const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
     removeRecommendItem: true, //评论区推荐内容
     removeRewardItem: true, //微博详情页打赏模块
 
-    removeLiveMedia: true, //首页顶部直播
+    removeLiveMedia: false, //首页顶部直播
     removeNextVideo: true, //关闭自动播放下一个视频
 
     removeInterestFriendInTopic: true, //超话：超话里的好友
@@ -245,14 +245,13 @@ function removeTimeLine(data) {
             element.user.verified_type = 0;
             element.user.svip = 1;
             element.user.verified_level = 2;
-            element.user.avatargj_id = 'gj_vip_583';
             element.user.verified = true;
             element.user.has_ability_tag = 1;
             element.user.type = 1;
             element.user.star = 1;
             element.user.icons = [{
-              //  "url": "https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png",
-               // "scheme": "https:\/\/me.verified.weibo.com\/fans\/intro?topnavstyle=1"
+                "url": "",
+                "scheme": "https:\/\/me.verified.weibo.com\/fans\/intro?topnavstyle=1"
             }];
         }
     }
@@ -263,17 +262,51 @@ function removeHomeVip(data) {
     if (!data.header) {
         return data;
     }
-    //data.header.avatar.badgeUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/04/07/avatar_vip_golden.png';
-    //data.header.desc.content = '微博认证：最美小仙女';
+    data.header.avatar.badgeUrl = '';
+    data.header.desc.content = '';
     // data.items[0].title.content = '0';
     let vipCenter = data.header.vipCenter;
+    let vipIcon = data.header.vipIcon;
+    let vipView = data.header.vipView;
     if (!vipCenter) {
         return data;
     }
-    //vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
-    vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
-    //vipCenter.content.contents[2].content = '会员中心';
-    //vipCenter.title.content = '会员中心';
+    if (vipCenter) {
+        if (vipCenter.icon) vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
+        if (vipCenter.dot) vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
+        if (vipCenter.content.contents) vipCenter.content.contents[2].content = '会员中心';
+        if (vipCenter.title) vipCenter.title.content = '会员中心';
+    }
+
+    if (vipIcon) {
+        vipIcon.iconUrl = 'https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png';
+        vipIcon.style.width = '15';
+        vipIcon.style.height = '18';
+    }
+    if (vipView) {
+        if (vipView.content1 && vipView.content1.contents && vipView.content1.contents.length > 1) {
+            vipView.content1.contents[0].iconUrl = '';
+            vipView.content1.contents[2].content = '';
+            vipView.content1.contents[2].style.textColor = '#BB5416';
+            vipView.content1.contents[2].style.textColorDark = '#AC521C';
+        }
+        if (vipView.content2) vipView.content2.texts = [
+            
+        ];
+        if (vipView.rightImage) {
+            vipView.rightImage.iconUrl = '';
+            vipView.rightImage.itemId = 'button_VIP_all';
+        }
+        if (vipView.rightText) {
+            vipView.rightText.content = '';
+            vipView.rightText.itemId = 'button_VIP_all';
+            vipView.rightText.style.textColor = '#BB5416';
+            vipView.rightText.style.textColorDark = '#AC521C';
+        }
+        if (vipView.bgImage1) vipView.bgImage1.iconUrl = '';
+        vipView.itemId = 'background_VIP';
+    }
+
     return data;
 }
 
@@ -403,6 +436,9 @@ function removeHome(data) {
             updateProfileSkin(item, 'profileSkin1');
             newItems.push(item);
         } else if (itemId == '100505_-_newcreator') {
+            //创作者中心卡片底部圆角
+            if (item.style && item.style.background) item.style.background.corners = [7, 7, 7, 7];
+            if (item.style) item.style.padding = [0, 0, 0, 7];
             if (item.type == 'grid') {
                 updateProfileSkin(item, 'profileSkin2');
                 newItems.push(item);
@@ -420,6 +456,7 @@ function removeHome(data) {
         }
     }
     data.items = newItems;
+    if (data.moreInfo) data.moreInfo.noMore = true;
     return data;
 }
 
