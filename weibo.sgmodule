@@ -3,6 +3,8 @@
 #!system=ios
 
 [Rule]
+#!微博去广告
+RULE-SET,https://raw.githubusercontent.com/llppliu/Surge/Script/weibo.list,REJECT
 #!微博其它
 URL-REGEX,^https?:\/\/.+\/wbts\.png$,REJECT
 URL-REGEX,^https?:\/\/.+\/licai\.png$,REJECT
@@ -80,4 +82,5 @@ URL-REGEX,^https?:\/\/wx[0-9]\.sinaimg\.cn\/large\/.+\.gif$,REJECT
 
 [MITM]
 hostname = %APPEND% *.uve.weibo.com, *api.weibo.cn, *api.weibo.com, h5.sinaimg.cn, new.vip.weibo.cn, *.sc.weibo.com, captcha.weibo.com, wx*.sinaimg.cn, js.t.sinajs.cn, *.e.weibo.com
+
 
