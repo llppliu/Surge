@@ -1,8 +1,8 @@
 const STATUS_FULL_AVAILABLE = 2 // 解锁
 const STATUS_ORIGINAL_AVAILABLE = 1 // 仅解锁自制剧
-const STATUS_NOT_AVAILABLE = 0 // 解锁失败
+const STATUS_NOT_AVAILABLE = 0 // 失败
 const STATUS_TIMEOUT = -1 // 超时
-const STATUS_ERROR = -2 // 失败
+const STATUS_ERROR = -2 // N/A
 
 const $ = new Env('Netflix 解锁检测')
 let policyName = $.getval('Helge_0x00.Netflix_Policy') || 'Netflix'
@@ -73,7 +73,7 @@ async function testPolicies(policyName, policies = []) {
           failedPolicies.push(policy)
           break
         default:
-          console.log(`${policy}   失败 `)
+          console.log(`${policy}   N/A `)
           failedPolicies.push(policy)
       }
     }
