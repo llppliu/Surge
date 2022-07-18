@@ -66,7 +66,7 @@ async function testPolicies(policyName, policies = []) {
           break
         }
         case STATUS_NOT_AVAILABLE:
-          console.log(`${policy}   解锁失败 `)
+          console.log(`${policy}   失败 `)
           break
         case STATUS_TIMEOUT:
           console.log(`${policy}   超时 `)
