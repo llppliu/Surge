@@ -1,7 +1,7 @@
 const STATUS_FULL_AVAILABLE = 2 // 解锁
 const STATUS_ORIGINAL_AVAILABLE = 1 // 仅解锁自制剧
-const STATUS_NOT_AVAILABLE = 0 // 失败
-const STATUS_TIMEOUT = -1 // 超时
+const STATUS_NOT_AVAILABLE = 0 // N/A
+const STATUS_TIMEOUT = -1 // N/A
 const STATUS_ERROR = -2 // N/A
 
 const $ = new Env('Netflix 解锁检测')
@@ -66,14 +66,14 @@ async function testPolicies(policyName, policies = []) {
           break
         }
         case STATUS_NOT_AVAILABLE:
-          console.log(`${policy}   失败 `)
+          console.log(`${policy}  N/A `)
           break
         case STATUS_TIMEOUT:
-          console.log(`${policy}   超时 `)
+          console.log(`${policy}  M/A `)
           failedPolicies.push(policy)
           break
         default:
-          console.log(`${policy}   N/A `)
+          console.log(`${policy}  N/A `)
           failedPolicies.push(policy)
       }
     }
