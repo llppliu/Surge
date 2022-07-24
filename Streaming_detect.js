@@ -46,13 +46,13 @@ var flags = new Map([[ "AC" , "🇦🇨" ] ,["AE","🇦🇪"], [ "AF" , "🇦�
 
 let result = {
   "title": '          流媒体解锁查询',
-  "Netflix": '<b>Netflix: </b>失败',
-  "Dazn": "<b>Dazn: </b>失败",
-  "Disney": "<b>Disneyᐩ: </b>失败",
-  "Paramount" : "<b>Paramountᐩ: </b>失败",
-  "Discovery" : "<b>Discoveryᐩ: </b>失败",
-  "YouTube": '<b>YouTube: </b>失败',
-  //"Google": "Google 定位: 失败"
+  "Netflix": '<b>Netflix: </b> N/A',
+  "Dazn": "<b>Dazn: </b> N/A",
+  "Disney": "<b>Disneyᐩ: </b> N/A",
+  "Paramount" : "<b>Paramountᐩ: </b> N/A",
+  "Discovery" : "<b>Discoveryᐩ: </b> N/A",
+  "YouTube": '<b>YouTube: </b> N/A',
+  //"Google": "Google 定位:  N/A"
 
 }
 const message = {
@@ -76,12 +76,12 @@ const message = {
     console.log(result["Disney"])
   } else if (status==STATUS_NOT_AVAILABLE) {
     //console.log(3)
-    result["Disney"] = "<b>Disneyᐩ</b>失败"
+    result["Disney"] = "<b>Disneyᐩ</b> N/A"
   } else if (status==STATUS_TIMEOUT) {
-    result["Disney"] = "<b>Disneyᐩ</b>超时"
+    result["Disney"] = "<b>Disneyᐩ</b> N/A"
   }
 
-  let content = ""+"</br>"+([result["YouTube"],result["Netflix"],result["Disney"],result["Dazn"],result["Paramount"],result["Discovery"]]).join("</br></br>")
+  let content = ""+"</br>"+([result["YouTube Premium"],result["Netflix"],result["Disney"],result["Dazn"],result["Paramount"],result["Discovery"]]).join("</br></br>")
   content = content + "</br></br>"+"<font color=#CD5C5C >"+"<b></b> " + $environment.params+ "</font>"
   content =`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + `</p>`
 //  cnt = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` +'----------------------</br></br>'+result["Disney"]+'</br></br>----------------------</br>'+$environment.params + `</p>`
@@ -130,7 +130,7 @@ $configuration.sendMessage(message).then(resolve => {
     $done();
   }); 
   
-    $done({"title":result["title"],"htmlMessage":`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">`+'</br></br>'+"超时"+'</br></br></br>'+ output + `</p>`})
+    $done({"title":result["title"],"htmlMessage":`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">`+'</br></br>'+"N/A"+'</br></br></br>'+ output + `</p>`})
 }
   );
 
@@ -168,7 +168,7 @@ async function testDisneyPlus() {
     
     // 不支持解锁
     if (error === 'Not Available') {
-      console.log("失败")
+      console.log("N/A")
       return { status: STATUS_NOT_AVAILABLE }
     }
     
@@ -327,14 +327,14 @@ function testNf(filmId) {
       console.log("nf:"+response.statusCode)
       if (response.statusCode === 404) {
         
-        result["Netflix"] = "<b>Netflix</b>仅解锁自制剧"
+        result["Netflix"] = "<b>Netflix</b> 仅解锁自制剧"
         console.log("nf:"+result["Netflix"])
         resolve('Not Found')
         return 
       } else if (response.statusCode === 403) {
         
         //console.log("nfnf")
-        result["Netflix"] = "<b>Netflix</b>失败"
+        result["Netflix"] = "<b>Netflix</b> N/A"
         console.log("nf:"+result["Netflix"])
         //$notify("nf:"+result["Netflix"])
         resolve('Not Available')
@@ -347,13 +347,13 @@ function testNf(filmId) {
           region = 'us'
         }
         console.log("nf:"+region)
-        result["Netflix"] = "<b>Netflix</b>解锁: "+flags.get(region.toUpperCase())+""
+        result["Netflix"] = "<b>Netflix</b> 解锁: "+flags.get(region.toUpperCase())+""
         //$notify("nf:"+result["Netflix"])
         resolve("nf:"+result["Netflix"])
         return 
       }
     }, reason => {
-      result["Netflix"] = "<b>Netflix: </b>超时"
+      result["Netflix"] = "<b>Netflix: </b> N/A"
       console.log(result["Netflix"])
       resolve("timeout")
     }
@@ -377,10 +377,10 @@ function testYTB() {
       console.log("ytb:"+response.statusCode)
       if (response.statusCode !== 200) {
         //reject('Error')
-        result["YouTube"] = "<b>YouTube</b>失败"
+        result["YouTube"] = "<b>YouTube Premium</b> N/A"
       } else if (data.indexOf('Premium is not available in your country') !== -1) {
           //resolve('Not Available')
-        result["YouTube"] = "<b>YouTube</b>失败"
+        result["YouTube"] = "<b>YouTube Premium</b> N/A"
       } else if (data.indexOf('Premium is not available in your country') == -1) {//console.log(data.split("countryCode")[1])
       let region = ''
       let re = new RegExp('"GL":"(.*?)"', 'gm')
@@ -393,11 +393,11 @@ function testYTB() {
         region = 'US'
       }
       //resolve(region)
-      result["YouTube"] = "<b>YouTube</b>解锁: "+flags.get(region.toUpperCase())+""
+      result["YouTube"] = "<b>YouTube Premium</b> 解锁: "+flags.get(region.toUpperCase())+""
       console.log("ytb:"+region+ result["YouTube"])
       }
     }, reason => {
-      result["YouTube"] = "<b>YouTube</b>超时"
+      result["YouTube"] = "<b>YouTube Premium</b> N/A"
       //resolve("timeout")
     })
 }
@@ -429,12 +429,12 @@ function testDazn() {
     let data = response.body
     //data = extra
     let header = JSON.stringify(response.headers)
-    console.log("Dazn:"+response.statusCode)
+    console.log("Dazn "+response.statusCode)
     //console.log("Dazn:"+data)
     //$done(data)
     if (response.statusCode !== 200) {
       //reject('Error')
-      result["Dazn"] = "<b>Dazn</b>失败"
+      result["Dazn"] = "<b>Dazn</b> N/A"
     } else if (response.statusCode == 200) {//console.log(data.split("countryCode")[1])
       //console.log(data)
       let region = ''
@@ -442,16 +442,16 @@ function testDazn() {
       let ret = re.exec(data)
       if (ret != null && ret.length === 2) {
         region = ret[1]
-        result["Dazn"] = "<b>Dazn</b>解锁: "+flags.get(region.toUpperCase())+""
+        result["Dazn"] = "<b>Dazn</b> 解锁: "+flags.get(region.toUpperCase())+""
       } else {
-        result["Dazn"] = "<b>Dazn</b>失败"
+        result["Dazn"] = "<b>Dazn</b> N/A"
 
       }
       //resolve(region)
             console.log("Dazn:"+region+ result["Dazn"])
     }
   }, reason => {
-    result["Dazn"] = "<b>Dazn</b>超时"
+    result["Dazn"] = "<b>Dazn</b> N/A"
     //resolve("timeout")
   })
 }
@@ -471,14 +471,14 @@ function testParam() {
     console.log("Paramountᐩ"+response.statusCode)
     if (response.statusCode == 200) {
       //reject('Error')
-      result["Paramount"] = "<b>Paramountᐩ</b>解锁"
+      result["Paramount"] = "<b>Paramountᐩ</b> 解锁"
     } else if (response.statusCode == 302) {
       //resolve('Not Available')
-      result["Paramount"] = "<b>Paramountᐩ</b>失败"
+      result["Paramount"] = "<b>Paramountᐩ</b> N/A"
     } 
       console.log("Paramountᐩ"+ result["Paramount"])
   }, reason => {
-    result["Paramount"] = "<b>Paramountᐩ</b>超时"
+    result["Paramount"] = "<b>Paramountᐩ</b> N/A"
     //resolve("timeout")
   })
 }
@@ -522,13 +522,13 @@ function testDiscovery() {
         let locationd = data["data"]["attributes"]["currentLocationTerritory"]
         if (locationd == "us") {
           result["Discovery"] = "<b>Discoveryᐩ</b>解锁"
-          console.log("解锁Discoveryᐩ")
-          resolve("解锁Discoveryᐩ")
+          console.log("解锁: Discoveryᐩ")
+          resolve("解锁: Discoveryᐩ")
           return
         } else {
-          result["Discovery"] = "<b>Discoveryᐩ</b>失败"
-          console.log("Discoveryᐩ失败")
-          resolve("Discoveryᐩ失败")
+          result["Discovery"] = "<b>Discoveryᐩ</b> N/A"
+          console.log("Discoveryᐩ N/A")
+          resolve("Discoveryᐩ N/A")
           return
         }
       }, reason => {
