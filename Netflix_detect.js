@@ -69,7 +69,7 @@ async function testPolicies(policyName, policies = []) {
           console.log(`${policy}  N/A `)
           break
         case STATUS_TIMEOUT:
-          console.log(`${policy}  M/A `)
+          console.log(`${policy}  N/A `)
           failedPolicies.push(policy)
           break
         default:
