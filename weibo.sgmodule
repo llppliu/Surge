@@ -71,7 +71,7 @@ URL-REGEX,^https?:\/\/wx[0-9]\.sinaimg\.cn\/large\/.+\.gif$,REJECT
 ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/hot\/repost_daily data="https://hub.qste.com/Mock/Blank/Blank_Dict.json"
 
 [Script]
-#!微博去广告 - *.uve.weibo.com, *api.weibo.cn, *api.weibo.com, h5.sinaimg.cn, new.vip.weibo.cn, *.sc.weibo.com, captcha.weibo.com, wx*.sinaimg.cn, js.t.sinajs.cn, *.e.weibo.com
+#!微博 - *.uve.weibo.com, *api.weibo.cn, *api.weibo.com, h5.sinaimg.cn, new.vip.weibo.cn, *.sc.weibo.com, captcha.weibo.com, wx*.sinaimg.cn, js.t.sinajs.cn, *.e.weibo.com
 微博我的页面 = type=http-response,pattern=^https?:\/\/m?api\.weibo\.c(n|om)/2/(profile/(me|statuses)|searchall|statuses/(unread_hot_timeline|extend|video_mixtimeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|container/get_item|search/container_discover),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/llppliu/Surge/Script/weibo.js
 
 微博去广告 = type=http-response,requires-body=1,pattern=^https?:\/\/(sdk|wb)app\.uve\.weibo\.com(\/interface\/sdk\/sdkad.php|\/wbapplua\/wbpullad.lua),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
