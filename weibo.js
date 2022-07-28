@@ -329,8 +329,8 @@ function removeTimeLine(data) {
             element.user.type = 1;
             element.user.star = 1;
             element.user.icons = [{
-                "url": "https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png",
-                "scheme": "https:\/\/me.verified.weibo.com\/fans\/intro?topnavstyle=1"
+               // "url": "https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png",
+               // "scheme": "https:\/\/me.verified.weibo.com\/fans\/intro?topnavstyle=1"
             }];
         }
     }
@@ -351,16 +351,16 @@ function removeHomeVip(data) {
         return data;
     }
     if (vipCenter) {
-        if (vipCenter.icon) vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
-        if (vipCenter.dot) vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
-        if (vipCenter.content.contents) vipCenter.content.contents[2].content = '会员中心';
-        if (vipCenter.title) vipCenter.title.content = '会员中心';
+        //if (vipCenter.icon) vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
+       // if (vipCenter.dot) vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
+        //if (vipCenter.content.contents) vipCenter.content.contents[2].content = '会员中心';
+       // if (vipCenter.title) vipCenter.title.content = '会员中心';
     }
 
     if (vipIcon) {
-        vipIcon.iconUrl = 'https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png';
-        vipIcon.style.width = '15';
-        vipIcon.style.height = '18';
+       // vipIcon.iconUrl = 'https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png';
+       // vipIcon.style.width = '15';
+      //  vipIcon.style.height = '18';
     }
     if (vipView) {
         if (vipView.content1 && vipView.content1.contents && vipView.content1.contents.length > 1) {
@@ -451,7 +451,7 @@ function removeHomeVip(data) {
             vipView.rightText.style.textColorDark = '#AC521C';
         }
         if (vipView.bgImage1) vipView.bgImage1.iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/08/vip7_bg1.png';
-        vipView.itemId = 'background_VIP';
+        //vipView.itemId = 'background_VIP';
     }
 
     return data;
