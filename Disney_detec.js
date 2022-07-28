@@ -1,4 +1,4 @@
-const STATUS_COMING = 2 // 即将登陆
+const STATUS_COMING = 2 // N/A
 const STATUS_AVAILABLE = 1 // 解锁Disney+ 
 const STATUS_NOT_AVAILABLE = 0 // N/A
 const STATUS_TIMEOUT = -1 // N/A
@@ -47,13 +47,13 @@ async function testPolicies(policyName, policies = []) {
   let failedPolicies = []
   let availablePolicies = []
   let echo = results => {
-    console.log(`\n策略组 ${policyName} 检测结果：`)
+    .log(`\n策略组 ${policyName} 检测结果：`)
     for (let { policy, status, region, time } of results) {
       switch (status) {
         case STATUS_COMING: {
           let flag = getCountryFlagEmoji(region) ?? ''
           let regionName = REGIONS?.[region.toUpperCase()]?.chinese ?? ''
-          console.log(`${policy}  Disney+ 即将登陆  ${flag}${regionName}`)
+          console.log(`${policy}  N/A ${flag}${regionName}`)
           break
         }
         case STATUS_AVAILABLE: {
