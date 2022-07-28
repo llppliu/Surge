@@ -17,7 +17,7 @@ const BASE_URL_Discovery = "https://us1-prod-direct.discoveryplus.com/users/me"
 const link = { "media-url": "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/img/southpark/7.png" } 
 const policy_name = "Netflix" //填入你的 netflix 策略组名
 
-const arrow = " ➟ "
+const arrow = ""
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'
 
